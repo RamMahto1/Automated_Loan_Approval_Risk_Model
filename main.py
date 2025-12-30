@@ -5,7 +5,7 @@ import sys
 from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
 from src.components.data_validation import DataValidation
-
+from src.components.model_trainer import ModelTrainer
 
 ## Step 1: Data Ingestion
 data_ingestion = DataIngestion()
@@ -30,6 +30,13 @@ train_df, test_df = data_validation.initiate_data_validation()
 logging.info("Data Validation Completed")
 logging.info(f"train dataframe shape:{train_df.shape}")
 logging.info(f"test dataframe shape:{test_df.shape}")
+
+
+## Step 4: Model Trainer
+model_trainer = ModelTrainer()
+best_model_path = model_trainer.initiate_model_trainer(train_arr, test_arr)
+logging.info(f"Best model saved at: {best_model_path}")
+
 
 
 
