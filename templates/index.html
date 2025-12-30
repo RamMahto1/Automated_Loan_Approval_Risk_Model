@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Default Prediction</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 12px;
+            text-align: center;
+            border-radius: 4px;
+            background: #f1f1f1;
+            color: #333;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Loan Default Prediction</h2>
+
+        <form method="POST">
+            <label>Income</label>
+            <input type="number" name="income" step="0.01" required>
+
+            <label>Age</label>
+            <input type="number" name="age" step="1" required>
+
+            <label>Loan Amount</label>
+            <input type="number" name="loan" step="0.01" required>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction is not none %}
+        <div class="result">
+            <strong>Prediction:</strong> {{ prediction }}
+            <div class="note">(0 = No Default, 1 = Default)</div>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
