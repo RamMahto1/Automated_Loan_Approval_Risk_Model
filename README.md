@@ -98,6 +98,6 @@ Linux/macOS
 
 
 # Author 
-Ram Mahto
-Aspiring Data Scientist/MLOps Enthusiast
+- Ram Mahto
+- Aspiring Data Scientist/MLOps Enthusiast
 
